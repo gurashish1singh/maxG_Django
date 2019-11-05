@@ -124,3 +124,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/accounts/'
+
+# For Sending password reset emails
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025

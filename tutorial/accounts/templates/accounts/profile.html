@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+    <h2> Profile </h2><br>
+
+    <div class="container-fluid">
+        <p>
+            First Name: {{ user.first_name }}<br>
+            Last Name: {{ user.last_name }}<br>
+            Username: {{ user.username }}<br>
+            Email ID: {{ user.email }}<br>
+        </p>
+    </div>
+
+    <div class="container-fluid">
+        <button class="btn btn-outline-success"><a href="/accounts/profile/edit"> Edit Profile </a></button>
+        <button class="btn btn-outline-danger"><a href="/accounts/change-password"> Change Password </a></button>
+    </div>
+ 
+
+{% endblock  %}
