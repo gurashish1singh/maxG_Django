@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash # This is used so that the user is still loggged in after password change
 from django.contrib.auth.forms import (
@@ -26,8 +27,8 @@ def home(request):
 
 
 def login_redirect(request):
-    return redirect('/accounts/login')
-
+    # return redirect('/accounts/login')
+    return redirect(reverse('accounts:login'))
 
 def register(request):
 
@@ -35,7 +36,7 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid:
             form.save()
-            return redirect('/accounts/')
+            return redirect(reverse('accounts:home'))
     else:
         form = RegistrationForm()
 
@@ -66,9 +67,7 @@ def edit_profile(request):
 
         if form.is_valid():
             form.save()
-            return redirect('/accounts/profile')
-        else:
-            return redirect('/accounts/profile/edit')
+            return redirect('accounts:view_profile')
 
     else:
         form = EditProfileForm(instance=request.user)
@@ -90,9 +89,9 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            return redirect('/accounts/profile')
+            return redirect('accounts:view_profile')
         else:
-            return redirect('/accounts/change-password')
+            return redirect('accounts:change-password')
 
     else:
         form = PasswordChangeForm(user=request.user)

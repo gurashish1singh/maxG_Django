@@ -20,5 +20,5 @@ from accounts.views import login_redirect
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',login_redirect, name='login_redirect'),
-    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
 ]

@@ -5,21 +5,20 @@
 <h2> Profile </h2><br>
 
 <div class="container-fluid">
-    <p>
-        First Name: {{ user.first_name }}<br>
-        Last Name: {{ user.last_name }}<br>
-        Username: {{ user.username }}<br>
-        Email ID: {{ user.email }}<br>
-    </p>
+    <p> First Name: {{ user.first_name }} </p>
+    <p> Last Name: {{ user.last_name }} </p>
+    <p> Username: {{ user.username }} </p>
+    <p> Email ID: {{ user.email }} </p>
+    <p> Description: {{ user.userprofile.desc }} </p>
+    <p> City: {{ user.userprofile.city }} </p>
+    <p> Website: {{ user.userprofile.website }} </p>
+    <p> Phone: {{ user.userprofile.phone }} </p>
+
 </div>
 
 <div class="container-fluid">
-    <button class="btn btn-outline-success"><a href="/accounts/profile/edit"> Edit Profile </a></button>
-    <button class="btn btn-outline-warning"><a href="/accounts/change-password"> Change Password </a></button>
-</div>
-
-<div class="container-fluid">
-    <button class="btn btn-outline-danger"><a href="/accounts/reset-password"> Reset Password </a></button>
+    <a class="btn btn-outline-success" href="{% url 'accounts:edit_profile' %}" role="button"> Edit Profile </a>
+    <a class="btn btn-outline-warning" href="{% url 'accounts:change_password' %}" role="button"> Change Password </a>
 </div>
 
 

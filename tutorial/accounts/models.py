@@ -9,7 +9,7 @@ class UserProfile(models.Model):
     city = models.CharField(max_length=50)
     website = models.URLField(null=True,blank=True)
     phone = models.IntegerField(null=True,blank=True)
-
+    image = models.ImageField(upload_to='pics')
 
     def create_profile(sender,**kwargs):
         if kwargs['created']:
