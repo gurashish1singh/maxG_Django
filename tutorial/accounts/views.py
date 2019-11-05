@@ -15,17 +15,6 @@ from .forms import (
 
 
 # Create your views here.
-@login_required
-def home(request):
-
-
-    context = {
-        'title' : 'Home'
-    }
-    template_name = 'accounts/home.html'
-    return render(request,template_name,context)
-
-
 def login_redirect(request):
     # return redirect('/accounts/login')
     return redirect(reverse('accounts:login'))

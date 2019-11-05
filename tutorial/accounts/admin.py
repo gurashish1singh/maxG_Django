@@ -20,7 +20,6 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 
 
-
 admin.site.register(UserProfile, UserProfileAdmin)
 
 # # Changing the django admin page - changed it in the template 
