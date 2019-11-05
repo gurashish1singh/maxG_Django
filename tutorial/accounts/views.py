@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash # This is used so that the user is still loggged in after password change
 from django.contrib.auth.forms import (
     UserCreationForm, 
@@ -13,6 +14,7 @@ from .forms import (
 
 
 # Create your views here.
+@login_required
 def home(request):
 
 
@@ -46,6 +48,7 @@ def register(request):
     return render(request,template_name,context)
 
 
+@login_required
 def view_profile(request):
 
     context = {
@@ -56,6 +59,7 @@ def view_profile(request):
     return render(request, template_name, context)
 
 
+@login_required
 def edit_profile(request):
     if request.method=='POST':
         form = EditProfileForm(request.POST, instance=request.user)
@@ -78,6 +82,7 @@ def edit_profile(request):
     return render(request, template_name, context)
 
 
+@login_required
 def change_password(request):
     if request.method=='POST':
         form = PasswordChangeForm(data=request.POST, user=request.user)
