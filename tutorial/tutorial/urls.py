@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',login_redirect, name='login_redirect'),
     path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('home/', include('home.urls', namespace='home')),
 ]
 
 # For the media files

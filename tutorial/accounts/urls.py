@@ -1,6 +1,5 @@
 from django.urls import path, reverse_lazy
 from .views import (
-    home,
     register,
     view_profile,
     edit_profile,
